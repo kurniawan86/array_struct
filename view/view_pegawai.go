@@ -13,6 +13,7 @@ func Insert() {
 	var id, nomer int
 
 	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("INSERT DATA PEGAWAI BARU ")
 
 	fmt.Print("masukkan ID Pegawai : ")
 	fmt.Scan(&id)
@@ -47,11 +48,14 @@ func Insert() {
 	}
 
 	model.Create(emp)
+	fmt.Println("")
 }
 
 func Display() {
 	fmt.Println("daftar pegawai perusahaan XXX")
-	for _, emp := range model.Read() {
-		fmt.Println(emp)
+	for i, emp := range model.Read() {
+		fmt.Println("pegawai ke-", i+1)
+		fmt.Println("ID Pegawai \t: ", emp.ID)
+
 	}
 }
